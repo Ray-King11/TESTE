@@ -24,5 +24,6 @@ sudo ./config/setup.sh --force
 
 sudo veil
 
+sudo ln -s /home/ray_king11/Veil/Veil.py /usr/local/bin/veil
 
 
