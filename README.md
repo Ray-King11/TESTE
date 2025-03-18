@@ -17,3 +17,12 @@ sudo ./setup.sh
 
 sudo ./fatrat
 
+cd ~
+git clone https://github.com/Veil-Framework/Veil.git
+cd Veil
+sudo ./config/setup.sh --force
+
+sudo veil
+
+
+
