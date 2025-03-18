@@ -14,3 +14,6 @@ git clone https://github.com/Screetsec/TheFatRat.git
 cd TheFatRat
 chmod +x setup.sh
 sudo ./setup.sh
+
+sudo ./fatrat
+
