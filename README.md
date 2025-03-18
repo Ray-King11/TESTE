@@ -9,5 +9,6 @@ http://192.168.1.105:8080/payload_encoded.exe
 
 
 
+zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
 
 
