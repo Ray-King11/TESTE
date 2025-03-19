@@ -13,7 +13,6 @@ exploit
 
 python3 -m http.server 8080
 
-
 http://192.168.1.128:8080/payload_protegido.zip
 
 
