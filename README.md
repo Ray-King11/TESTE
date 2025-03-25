@@ -23,6 +23,7 @@ cp /root/Fatrat_Generated/relatorio_seguranca.exe /var/www/html/payloads/
 
 find / -name "relatorio_seguranca.exe" 2>/dev/null
 
+http://192.168.1.137/payloads/relatorio_seguranca.exe
 
 git clone https://github.com/Veil-Framework/Veil.git
 
