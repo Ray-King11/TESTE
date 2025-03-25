@@ -25,10 +25,11 @@ find / -name "relatorio_seguranca.exe" 2>/dev/null
 
 http://192.168.1.137/payloads/relatorio_seguranca.exe
 
+
+
 git clone https://github.com/Veil-Framework/Veil.git
-
 cd Veil
-
 ./config/setup.sh --force
+
 
 
