@@ -25,3 +25,10 @@ chmod +x setup.sh && sudo ./setup.sh
 
 sudo ./fatrat
 
+git clone https://github.com/Veil-Framework/Veil.git
+
+cd Veil
+
+./config/setup.sh --force
+
+
