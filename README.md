@@ -56,4 +56,6 @@ End Sub
 
 https://www.microsoft.com/pt-br/software-download/windows10ISO
 
+https://www.maltego.com/downloads/
+
 
