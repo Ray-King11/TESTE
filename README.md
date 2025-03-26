@@ -14,9 +14,9 @@ http://192.168.1.137:8080/vlc_infectado.exe
 
 http://192.168.1.137:8080/documento_infectado.rtf
 
-http://192.168.1.137/payloads/relatorio_seguranca.exe
-
 http://192.168.1.137:8080/microsoft_update.page.zip
+
+ SharpHound.exe -c All
 
 https://github.com/BloodHoundAD/SharpHound/releases
 
