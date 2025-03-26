@@ -18,6 +18,9 @@ http://192.168.1.137/payloads/relatorio_seguranca.exe
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
+   sudo apt install bloodhound neo4j -y
+
+
 
 mkdir -p ~/lab/scans ~/lab/exploits ~/lab/reports ~/lab/scripts
 
@@ -34,17 +37,6 @@ sudo apt install bloodhound neo4j gobuster seclists wireshark john hashcat nmap 
 
 sudo dpkg -i Nessus-xxx.deb
 sudo systemctl start nessusd
-
-
-
-sudo apt install virtualbox -y
-sudo apt install virtualbox-guest-x11 -y
-
-virtualbox
-sudo /sbin/vboxconfig
-
-cat /etc/os-release
-
 
 
 Sub AutoOpen()
