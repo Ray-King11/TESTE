@@ -18,8 +18,9 @@ http://192.168.1.137/payloads/relatorio_seguranca.exe
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
-   sudo apt install bloodhound neo4j -y
+http://localhost:7474
 
+   bloodhound &
 
 
 mkdir -p ~/lab/scans ~/lab/exploits ~/lab/reports ~/lab/scripts
