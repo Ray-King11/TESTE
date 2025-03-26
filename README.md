@@ -18,14 +18,13 @@ http://192.168.1.137/payloads/relatorio_seguranca.exe
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
-http://localhost:7474
-
-   bloodhound &
+https://github.com/BloodHoundAD/SharpHound/releases
 
 
 mkdir -p ~/lab/scans ~/lab/exploits ~/lab/reports ~/lab/scripts
 
-sudo apt update && sudo apt upgrade -y
+
+
 sudo apt install kali-linux-large virtualbox-guest-x11 build-essential -y
 
 sudo msfdb init
