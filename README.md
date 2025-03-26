@@ -21,8 +21,25 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 mkdir -p ~/lab/scans ~/lab/exploits ~/lab/reports ~/lab/scripts
 
+sudo apt update && sudo apt upgrade -y
+sudo apt install kali-linux-large virtualbox-guest-x11 build-essential -y
+
+sudo msfdb init
+
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+
+sudo apt install bloodhound neo4j gobuster seclists wireshark john hashcat nmap burpsuite -y
+
+
+sudo dpkg -i Nessus-xxx.deb
+sudo systemctl start nessusd
+
+
 
 sudo apt install virtualbox -y
+sudo apt install virtualbox-guest-x11 -y
+
 virtualbox
 sudo /sbin/vboxconfig
 
