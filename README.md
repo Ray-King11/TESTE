@@ -17,7 +17,6 @@ http://192.168.1.137:8080/documento_infectado.rtf
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
-
-sudo apt install kali-linux-large virtualbox-guest-x11 build-essential -y
-
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
+
+Get-NetAdapter -Physical | Where-Object {$_.Status -eq "Up"}
