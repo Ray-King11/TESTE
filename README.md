@@ -21,5 +21,9 @@ sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
 Get-NetAdapter -Physical | Where-Object {$_.Status -eq "Up"}
 
-GetUserSPNs.py CORP.LAB.LOCAL/user:senha -dc-ip 192.168.1.<DC>
+smbclient -L //192.168.1.84/ -U convidado
+
+nmap -p 445 --script smb-enum-shares 192.168.1.84
+
+crackmapexec smb 192.168.1.84 -u administrador -p 123456
 
