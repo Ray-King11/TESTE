@@ -20,3 +20,6 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
 Get-NetAdapter -Physical | Where-Object {$_.Status -eq "Up"}
+
+GetUserSPNs.py CORP.LAB.LOCAL/user:senha -dc-ip 192.168.1.<DC>
+
