@@ -20,7 +20,7 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
 
 
-john --format=netntlmv2 hash_rs.txt --wordlist=/usr/share/wordlists/rockyou.txt
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 
 crackmapexec smb 192.168.1.84 -u convidado -p ""
 
