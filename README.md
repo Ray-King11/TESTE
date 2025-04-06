@@ -25,4 +25,4 @@ sudo apt update
 sudo apt install apache2 php libapache2-mod-php -y
 sudo systemctl restart apache2
 
- Bat To Exe Converter
+ https://bat-to-exe-converter.en.softonic.com
