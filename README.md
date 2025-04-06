@@ -25,4 +25,9 @@ sudo apt update
 sudo apt install apache2 php libapache2-mod-php -y
 sudo systemctl restart apache2
 
- https://bat-to-exe-converter.en.softonic.com
+ https://github.com/carlospolop/PEASS-ng/releases
+
+ mv winPEASx64.exe Atualizacao_Seguranca_Prefeitura_2021.exe
+
+
+ 
